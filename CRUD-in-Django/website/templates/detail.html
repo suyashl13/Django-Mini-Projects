@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+  <div class="details">
+    <h2>{{batman.title}}</h2>
+    <p>{{batman.text}}</p>
+  </div>
+
+  <h4><a href="{% url 'article_edit' batman.pk %}">Edit Post</a></h4>
+  <h4><a href="{% url 'article_delete' batman.pk %}">Delete Post</a></h4>
+{% endblock content %}
