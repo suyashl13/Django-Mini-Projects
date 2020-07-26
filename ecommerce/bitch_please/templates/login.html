@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+body{
+    background: url("{% static 'assets/bg-login.jpg' %}") no-repeat center center fixed;
+    background-size: cover;
+    background-size: cover;
+}
+
+.formc {
+    text-align: center;
+    width: 30%;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid bg-light text-dark">
+    <form class="formc" method="post">
+        {% csrf_token %}
+        <h2>Login</h2><hr>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input">
+            <label class="form-check-label">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+</div>
+<br><br><br><br><br><br><br><br>
+<br><br><br>
+{% endblock %}

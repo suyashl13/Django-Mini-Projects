@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block style %}
+body{
+            background: url("{% static 'assets/bg-login.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            background-size: cover;
+        }
+        .formc {
+            text-align: center;
+            width: 30%;
+            padding: 20px;
+            margin: 0 auto;
+            margin-top: 200px;
+            margin-bottom: 200px;
+
+        }
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid bg-light text-dark">
+
+      <form class="formc" method="post">
+        {% csrf_token %}
+        <h2>Create an Account</h2>
+        <hr>
+        {{ form|crispy }}
+        <button class="btn bg-dark btn-dark" type="submit">Sign up</button>
+      </form>
+  </div>
+{% endblock %}

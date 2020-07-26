@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+{% endblock %}
+
+
+{% block body %}
+ <div class="container">
+      <center><center style="margin-top: 50px; margin-bottom: 50px; padding-left: 50px;"><h1 class="display-4">{{ product.name }}</h1></center></center>
+    </div>
+
+    <div style="margin-top: 50px; margin-bottom: 50px; padding-left: 50px; padding-right: 50px;" class="container-fluid">
+      <hr>
+      <div class="card text-center">
+        <img src="{{ product.image.url }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Rs.{{ product.price }}</h6>
+          <p class="card-text">{{ product.description }}</p>
+          <br>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>Vendor</th>
+                <td>{{ product.vendor }}</td>
+              </tr>
+              <tr>
+                <th>Product Rating</th>
+                <td>{{ product.rating }}/5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <center><p class="display-4">Buy Now</p></center>
+      <br>
+      <hr>
+      <br>
+      <form method="post" name="myForm" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Select Quantity</label>
+          <select name="quantity" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mode of Payment</label>
+          <select name="mode_of_payment" class="form-control">
+            <option>Cash on Delivery</option>
+            <option>Net Banking</option>
+            <option>Card Payment</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Address of delivery</label>
+          <textarea name="address" class="form-control"></textarea>
+        </div>
+        <center><input type="submit" class="btn bg-dark text-light" value="Buy Now"></center>
+      </form>
+    </div>
+<script src="{% static 'js/orderformvalidation.js' %}"></script>
+ {% endblock %}

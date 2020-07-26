@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+.card{
+  margin-top:20px;
+}
+{% endblock %}
+
+{% block body %}
+<br><br>
+    <center style="margin-top: 50px;"><h1 class="display-4">Products</h1></center>
+    <br><br>
+    <div class="container" style="margin-top: 50px;">
+    <center class="lead">Home Basics</center>
+      <hr>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+        {% for prod in Home_Basics %}
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-header">
+              {{ prod.name }}
+            </div>
+            <img src="{{ prod.image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rs.{{ prod.price }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{% for t in prod.tags.all %}{{ t }}{% endfor %}</h6>
+              <p class="card-text">{{ prod.description }}</p>
+              <a href="{% url 'product' prod.pk %}" class="btn border bg-light">View Product</a>
+              <a href="{% url 'add_to_cart' prod.pk %}" class="btn border bg-light">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 50px;">
+      <center class="lead">Fashion</center>
+        <hr>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+          {% for prod in Fasion %}
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-header">
+              {{ prod.name }}
+            </div>
+            <img src="{{ prod.image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rs.{{ prod.price }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{% for t in prod.tags.all %}{{ t }}{% endfor %}</h6>
+              <p class="card-text">{{ prod.description }}</p>
+              <a href="{% url 'product' prod.pk %}" class="btn border bg-light">View Product</a>
+              <a href="{% url 'add_to_cart' prod.pk %}" class="btn border bg-light">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+      <div class="container" style="margin-top: 50px;">
+        <center class="lead">Sports and fitness</center>
+          <hr>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+            {% for prod in Sports_and_fitness %}
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-header">
+              {{ prod.name }}
+            </div>
+            <img src="{{ prod.image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rs.{{ prod.price }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{% for t in prod.tags.all %}{{ t }}{% endfor %}</h6>
+              <p class="card-text">{{ prod.description }}</p>
+              <a href="{% url 'product' prod.pk %}" class="btn border bg-light">View Product</a>
+              <a href="{% url 'add_to_cart' prod.pk %}" class="btn border bg-light">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+      <div class="container" style="margin-top: 50px;">
+        <center class="lead">Appliances, Electronics</center>
+          <hr>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+            {% for prod in Appliances_Electronics %}
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-header">
+              {{ prod.name }}
+            </div>
+            <img src="{{ prod.image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rs.{{ prod.price }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{% for t in prod.tags.all %}{{ t }}{% endfor %}</h6>
+              <p class="card-text">{{ prod.description }}</p>
+              <a href="{% url 'product' prod.pk %}" class="btn border bg-light">View Product</a>
+              <a href="{% url 'add_to_cart' prod.pk %}" class="btn border bg-light">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+      <div class="container" style="margin-top: 50px;">
+        <center class="lead">Audible & Educational</center>
+          <hr>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+            {% for prod in Audible_Educational %}
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-header">
+              {{ prod.name }}
+            </div>
+            <img src="{{ prod.image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rs.{{ prod.price }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{% for t in prod.tags.all %}{{ t }}{% endfor %}</h6>
+              <p class="card-text">{{ prod.description }}</p>
+              <a href="{% url 'product' prod.pk %}" class="btn border bg-light">View Product</a>
+              <a href="{% url 'add_to_cart' prod.pk %}" class="btn border bg-light">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+        <div class="container" style="margin-top: 50px;">
+          <center class="lead">Beauty, Health, Grocery</center>
+            <hr>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+         {% for prod in Beauty_Health_Grocery %}
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-header">
+              {{ prod.name }}
+            </div>
+            <img src="{{ prod.image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rs.{{ prod.price }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{% for t in prod.tags.all %}{{ t }}{% endfor %}</h6>
+              <p class="card-text">{{ prod.description }}</p>
+              <a href="{% url 'product' prod.pk %}" class="btn border bg-light">View Product</a>
+              <a href="{% url 'add_to_cart' prod.pk %}" class="btn border bg-light">Add to cart</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}
